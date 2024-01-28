@@ -1,19 +1,4 @@
 # Go (Golang) - Basic Concepts
-
-## Table of Contents
-- [Introduction](#introduction)
-- [History](#history)
-- [Features](#features)
-- [Syntax](#syntax)
-- [Data Types](#data-types)
-  - [Basic Data Types](#basic-data-types)
-  - [More Data Types](#more-data-types)
-  - [Advanced Data Types](#advanced-data-types)
-- [Installation](#installation)
-- [Hello World](#hello-world)
-- [Variable Declaration](#variable-declaration)
-- [Scopes](#scopes)
-
 ## Introduction
 Go, also known as Golang, is an open-source programming language developed by Google. It is designed for simplicity, efficiency, and ease of use. Go is statically typed and compiled, with a focus on concurrency.
 
@@ -78,6 +63,7 @@ func main() {
         area() float64
     }
 
+    // ... (additional examples as needed)
 }
 ```
 
@@ -109,6 +95,7 @@ func main() {
     fmt.Println("Pointer Value:", *pointerValue)
     fmt.Println("Pointer as uintptr:", uintptrValue)
 
+    // ... (additional examples as needed)
 }
 ```
 
@@ -162,6 +149,81 @@ func main() {
 }
 ```
 
+## Variable Declaration and Assignment
+
+### Walrus Operator (`:=`)
+The walrus operator `:=` is a shorthand notation for declaring and initializing variables. It infers the type based on the assigned value.
+
+#### Example
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // Using walrus operator for variable declaration and assignment
+    message := "Hello, Walrus!"
+    fmt.Println(message)
+}
+```
+
+### Comma-Ok Syntax
+The comma-ok syntax is commonly used with maps and channels to check if a key or value exists.
+
+#### Example
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // Comma-ok syntax with map
+    myMap := map[string]int{"one": 1, "two": 2}
+    value, exists := myMap["three"]
+
+    // Checking if key exists in the map
+    if exists {
+        fmt.Println("Value:", value)
+    } else {
+        fmt.Println("Key not found.")
+    }
+}
+```
+
+## Error Handling
+Error handling in Go is explicit. Functions that may return an error have a second return value of type `error`.
+
+#### Example
+```go
+package main
+
+import (
+    "fmt"
+    "errors"
+)
+
+// Function that returns an error
+func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("division by zero")
+    }
+    return a / b, nil
+}
+
+func main() {
+    result, err := divide(10, 2)
+    if err != nil {
+        fmt.Println("Error:", err)
+    } else {
+        fmt.Println("Result:", result)
+    }
+}
+```
+
+## Installation
+Certainly! Continuing from where it left off:
+
+```markdown
 ## Installation
 To install Go, follow these steps:
 1. Visit the official [Go download page](https://golang.org/dl/).
